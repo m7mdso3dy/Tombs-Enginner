@@ -352,8 +352,8 @@ const sendEmail = () => {
     Host: "smtp.elasticemail.com",
     Username: "kimosody125@gmail.com",
     Password: "CB48E286944B8D574EFA93F5A045A1531B7B",
-    To: "receving email", // الايميل اللى هيتبعت عليه اليانات
-    From: "reciving email", // الايميل اللى هيتبعت عليه اليانات
+    To: "omarelsheeta@bk.ru", // الايميل اللى هيتبعت عليه اليانات
+    From: "omarelsheeta@bk.ru", // الايميل اللى هيتبعت عليه اليانات
     Subject: "new contact ",
     Body: `
     name : ${form.value.name}
