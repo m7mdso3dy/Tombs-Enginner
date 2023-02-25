@@ -89,3 +89,77 @@ body {
 .gloabl-border {
   border: 1px solid $grey-10;
 }
+$primary: #f1a454;
+$secondary: #7e746a;
+$accent: #92783b;
+
+$dark: #1d1d1d;
+$dark-page: #121212;
+
+$positive: #b6896c;
+$negative: #c10015;
+$info: #a7aab3;
+$warning: #f2c037;
+$grey-10: #c4cdd5;
+.dashed-border {
+  border: 2px dashed;
+  border-radius: 10px;
+}
+.input-uploder-container {
+  // transition: all 1s ease-in-out;
+  .text-red {
+    &.dashed-border {
+      border-color: $negative;
+      .upper {
+        img {
+          filter: invert(34%) sepia(41%) saturate(6522%) hue-rotate(345deg)
+            brightness(95%) contrast(85%);
+        }
+        .q-field__label {
+          color: $negative;
+          &::before {
+            color: $negative;
+          }
+        }
+      }
+    }
+  }
+  .fileName {
+    border-radius: 20px;
+  }
+}
+.company-accordion {
+  background: #fff;
+  border-radius: 6px;
+  .q-card {
+    background: $white;
+    border-radius: 5px;
+    .q-card__section--vert {
+      padding: 24px 0;
+    }
+  }
+  .q-expansion-item__content {
+    border-top: none;
+  }
+  .q-item {
+    padding: 14px 19px;
+
+    .accordion-header {
+      .company-title {
+        font-family: $semi-bold-font;
+        font-weight: 600;
+        font-size: 18px;
+      }
+    }
+  }
+  .q-item__section--side {
+    color: $primary;
+  }
+}
+.over-lay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  cursor: pointer;
+}
