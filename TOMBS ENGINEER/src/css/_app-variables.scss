@@ -1,0 +1,91 @@
+$base-color: #23b1bb;
+$base-dark: #1a090d;
+$dark-grey: #788995;
+$grey: #788995;
+$light-grey: #afafaf;
+$light-grey-2: #fafafa;
+$med-light-grey: #d4d9dd;
+$lighter-grey: #f9fafa;
+$black2: #191920;
+$black3: #2b2b2f;
+$light-black: #1c184a;
+// $grey: #979797;
+$light-info: #dcdcdc;
+$light-info-1: #c6cad7;
+$lighter-info: #f0f0f0;
+$light-gery-info-1: #969bab;
+$light-green: #5cb466;
+$med-light-green: #47b153;
+$light-border: #ebedef;
+$dark-blue: #1c184a;
+$red: #e23636;
+$white: #fff;
+$off-white: #dde3e8;
+$light-off-white: #fafbfb;
+$light-off-white-2: #f3f3f8;
+$light-off-white-3: #fafafc;
+$black: #333;
+$row-shadow: 0 10px 15px 0 rgb(0 0 0 / 4%);
+$light-warning: #fde9d1;
+$pale-grey: #f0f1f2;
+$blue-6: #1da1f2;
+$grey-8: "#DEDEDE";
+$input-bg-color: #f0f7f8;
+$input-label-color: #8b9195;
+$alert: #e89f2a;
+$error: #e23636;
+$indigo-10: #003366;
+$grey-10: #c4cdd5;
+// fonts
+$regular-font: "ibm-regular";
+$medium-font: "ibm-medium";
+$semi-bold-font: "ibm-semi-bold";
+$bold-font: "ibm-bold";
+$bolder-font: "ibm-medium";
+
+.regular-font {
+  font-family: $regular-font;
+}
+
+.medium-font {
+  font-family: $medium-font;
+}
+
+.semi-bold-font {
+  font-family: $semi-bold-font;
+  font-weight: 300;
+}
+
+.bold-font {
+  font-family: $bold-font;
+  font-weight: 500;
+}
+
+.bolder-font {
+  font-family: $bolder-font;
+  font-weight: 500;
+}
+.bg-light-grey-2 {
+  background-color: $light-grey-2;
+}
+.text-light-grey-2 {
+  color: $light-grey-2;
+}
+
+.font-bold {
+  font-family: $bold-font;
+}
+
+.font-regular {
+  font-family: $regular-font;
+}
+
+.font-semi-bold {
+  font-family: $semi-bold-font;
+}
+body {
+  font-family: $semi-bold-font;
+}
+.gloabl-border {
+  border: 1px solid $grey-10;
+}

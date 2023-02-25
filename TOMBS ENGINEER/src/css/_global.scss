@@ -1,0 +1,40 @@
+.q-carousel__slide {
+  background-position: left !important;
+}
+.q-tab__indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  right: 47%;
+}
+//border-radiuses
+$radiuses: (
+  0: 0px,
+  4: 4px,
+  6: 6px,
+  10: 10px,
+  12: 12px,
+  16: 16px,
+  18: 18px,
+  20: 20px,
+  30: 30px,
+  50: 50px,
+);
+
+@each $radius, $value in $radiuses {
+  .border-radius-#{$radius} {
+    border-radius: $value;
+  }
+  .border-radius-tl-#{$radius} {
+    border-top-left-radius: $value;
+  }
+  .border-radius-tr-#{$radius} {
+    border-top-right-radius: $value;
+  }
+  .border-radius-bl-#{$radius} {
+    border-bottom-left-radius: $value;
+  }
+  .border-radius-br-#{$radius} {
+    border-bottom-right-radius: $value;
+  }
+}

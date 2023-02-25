@@ -1,0 +1,99 @@
+@font-face {
+  font-family: "ibm-regular";
+  src: url(~/public/fonts/ibm/IBMPlexSansArabic-Regular.ttf);
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "ibm-medium";
+  src: url(~/public/fonts/ibm/IBMPlexSansArabic-Medium.ttf);
+  font-weight: 500;
+}
+@font-face {
+  font-family: "ibm-semi-bold";
+  src: url(~/public/fonts/ibm/IBMPlexSansArabic-SemiBold.ttf);
+  font-weight: 600;
+}
+@font-face {
+  font-family: "ibm-bold";
+  src: url(~/public/fonts/ibm/IBMPlexSansArabic-Bold.ttf);
+  font-weight: bold;
+}
+// Font sizing
+.t-fs-8 {
+  font-size: 8px !important;
+}
+.t-fs-10 {
+  font-size: 10px !important;
+}
+.t-fs-11 {
+  font-size: 11px !important;
+}
+.t-fs-12 {
+  font-size: 12px !important;
+}
+.t-fs-14 {
+  font-size: 14px !important;
+}
+.t-fs-15 {
+  font-size: 15px !important;
+}
+.t-fs-16 {
+  font-size: 16px !important;
+}
+.t-fs-17 {
+  font-size: 17px !important;
+}
+.t-fs-18 {
+  font-size: 18px;
+}
+.t-fs-19 {
+  font-size: 19px;
+}
+.t-fs-20 {
+  font-size: 20px !important;
+}
+.t-fs-21 {
+  font-size: 21px;
+}
+.t-fs-22 {
+  font-size: 22px !important;
+}
+.t-fs-24 {
+  font-size: 24px !important;
+}
+.t-fs-28 {
+  font-size: 28px !important;
+}
+.t-fs-30 {
+  font-size: 30px !important;
+}
+.t-fs-32 {
+  font-size: 32px !important;
+}
+.t-fs-37 {
+  font-size: 37px !important;
+}
+.t-fs-40 {
+  font-size: 40px !important;
+}
+
+$line-height-values: (
+  13: 13px,
+  16: 16px,
+  18: 18px,
+  20: 20px,
+  22: 22px,
+  24: 24px,
+  26: 26px,
+  28: 28px,
+  32: 32px,
+  37: 37px,
+  42: 42px,
+);
+
+@each $name, $value in $line-height-values {
+  .line-height-#{$name} {
+    line-height: $value;
+  }
+}
