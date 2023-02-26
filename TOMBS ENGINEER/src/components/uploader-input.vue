@@ -290,7 +290,6 @@ export default {
     },
   },
   setup(props, { emit }) {
-    console.log(props);
     const { t } = useI18n();
     const $q = useQuasar();
     const types = ref("");

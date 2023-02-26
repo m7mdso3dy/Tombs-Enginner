@@ -70,7 +70,7 @@
         <h2 class="t-fs-32 q-ma-none q-pa-none q-mb-lg text-primary">
           إحنا مين
         </h2>
-        <p class="q-pa-none q-ma-none t-fs-32 line-height-50 text-secondary">
+        <p class="q-pa-none q-ma-none t-fs-24 line-height-40 text-secondary">
           شركة المهندس للمقابر لجميع أنواع المقابر والمدافن والأحواش بجميع أنحاء
           الجمهورية تقدم لعملاء مقابر للبيع ومدافن للبيع وأحواش، وتوفر شراء
           مقابر للعملاء في أسرع وقت وبخبرة كبيرة في مجال بيع المقابر والمدافن
@@ -104,11 +104,17 @@
           />
         </div>
       </div>
-      <div class="q-pa-xl">
-        <div class="row q-col-gutter-lg">
+      <div class="q-pa-xl row col-12">
+        <div class="row q-col-gutter-lg col-12 w-100">
           <div v-for="(tomb, i) in tombsDataAvailable" :key="i" class="col-4">
             <q-card class="my-card" flat bordered>
-              <q-img width="450px" height="450px" :src="tomb.images[0]?.src" />
+              <q-card-section class="row items-center justify-center">
+                <q-img
+                  width="300px"
+                  height="300px"
+                  :src="tomb.images[0]?.src"
+                />
+              </q-card-section>
 
               <q-card-section>
                 <div class="text-h5 q-mt-sm q-mb-xs">{{ tomb.title }}</div>
@@ -311,7 +317,7 @@
           >
             <q-img
               class="gloabl-border border-radius-10"
-              :src="img"
+              :src="img.src"
               width="100%"
               height="100%"
             ></q-img>
@@ -372,83 +378,97 @@
       </div>
     </dialogComp>
     <dialogComp v-model="editDataPopup" title="تعديل بيانات الخدمات المعروضة">
-      <q-expansion-item
-        class="company-accordion q-mb-lg gloabl-border q-px-md"
-        v-for="(tomb, i) in tombsDataAvailable"
-        :key="i"
-        default-opened
-      >
-        <template v-slot:header>
-          <q-item-section class="accordion-header">
-            <span class="company-title">{{ tomb.title }}</span>
-          </q-item-section>
-          <q-item-section
-            v-if="tombsDataAvailable.length > 1"
-            class="accordion-header row justify-end items-end"
-          >
-            <q-icon
-              name="cancel"
-              color="negative"
-              size="sm"
-              @click="removeTomb(i)"
-            />
-          </q-item-section>
-        </template>
-        <q-card>
-          <q-card-section>
-            <div class="row company-header">
-              <div class="col-md-12 col-xs-12">
-                <div class="row q-col-gutter-md q-mb-md">
-                  <div class="col-12 col-sm-6 col-md-4">
-                    <q-input
-                      outlined
-                      v-model.trim="tomb.title"
-                      type="text"
-                      :label="$t('اسم الحدمة')"
-                      :rules="[...rules.requiredRule]"
-                    />
-                  </div>
-                  <div class="col-12 col-sm-6 col-md-4">
-                    <q-input
-                      outlined
-                      v-model="tomb.adress"
-                      type="text"
-                      :label="$t('عنوان المقبرة')"
-                      :rules="[...rules.requiredRule]"
-                    />
-                  </div>
-                  <div class="col-12 col-sm-6 col-md-4">
-                    <q-input
-                      outlined
-                      v-model="tomb.description"
-                      type="email"
-                      :label="$t('وصف المقبرة')"
-                      :rules="[...rules.requiredRule]"
-                    />
+      <q-form greedy @submit.prevent="editAvailableData">
+        <q-expansion-item
+          class="company-accordion q-mb-lg gloabl-border q-px-md"
+          v-for="(tomb, i) in tombsDataAvailable"
+          :key="i"
+          default-opened
+        >
+          <template v-slot:header>
+            <q-item-section class="accordion-header">
+              <span class="company-title">{{ tomb.title }}</span>
+            </q-item-section>
+            <q-item-section
+              v-if="tombsDataAvailable.length > 1"
+              class="accordion-header row justify-end items-end"
+            >
+              <q-icon
+                name="cancel"
+                color="negative"
+                size="sm"
+                @click="removeTomb(i)"
+              />
+            </q-item-section>
+          </template>
+          <q-card>
+            <q-card-section>
+              <div class="row company-header">
+                <div class="col-md-12 col-xs-12">
+                  <div class="row q-col-gutter-md q-mb-md">
+                    <div class="col-12 col-sm-6 col-md-4">
+                      <q-input
+                        outlined
+                        v-model.trim="tomb.title"
+                        type="text"
+                        :label="$t('اسم الحدمة')"
+                        :rules="[...rules.requiredRule]"
+                      />
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4">
+                      <q-input
+                        outlined
+                        v-model="tomb.adress"
+                        type="text"
+                        :label="$t('عنوان المقبرة')"
+                        :rules="[...rules.requiredRule]"
+                      />
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4">
+                      <q-input
+                        outlined
+                        v-model="tomb.description"
+                        type="text"
+                        :label="$t('وصف المقبرة')"
+                        :rules="[...rules.requiredRule]"
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="col-12 row justify-between q-col-gutter-sm">
-              <div class="col-12 col-md-6">
-                <uploader
-                  :label="$t('صور المكان')"
-                  accept="image/jpeg,image/png"
-                  v-model="tomb.images"
-                  :multiple="true"
-                />
+              <div class="col-12 row justify-between q-col-gutter-sm">
+                <div class="col-12 col-md-6">
+                  <uploader
+                    :label="$t('صور المكان')"
+                    accept="image/jpeg,image/png"
+                    v-model="tomb.images"
+                    :multiple="true"
+                  />
+                </div>
               </div>
-            </div>
-          </q-card-section>
-        </q-card>
-      </q-expansion-item>
-      <q-btn
-        flat
-        color="primary"
-        icon="add"
-        label="اضافة مقبرة جديدة"
-        @click="addNewTomb"
-      />
+            </q-card-section>
+          </q-card>
+        </q-expansion-item>
+
+        <q-btn
+          flat
+          color="primary"
+          icon="add"
+          label="اضافة مقبرة جديدة"
+          @click="addNewTomb"
+        />
+        <br />
+        <br />
+        <br />
+        <div class="w-100">
+          <q-btn
+            color="primary"
+            class="w-100 text-white q-py-lg t-fs-16"
+            type="submit"
+            label="تعديل المقابر الموجودة"
+          />
+        </div>
+      </q-form>
     </dialogComp>
     <dialogComp v-model="loginPopup" title="تسجيل الدخول">
       <q-form @submit.prevent="submitlogin">
@@ -475,7 +495,7 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
 import { useI18n } from "vue-i18n";
 import banner1 from "src/assets/banner-new-1-transformed.png";
 import banner2 from "src/assets/banner-new-2-transformed.png";
@@ -490,6 +510,9 @@ import { Email } from "./smtp";
 import { useQuasar } from "quasar";
 import dialogComp from "src/components/dialog-cb.vue";
 import uploader from "src/components/uploader-input.vue";
+import useNotification from "src/components/useNotifications.vue";
+import { getSavedTombs, updateTombs } from "src/configs/firebaseConfig";
+const { notify } = useNotification();
 const $q = useQuasar();
 const { t } = useI18n();
 const tab = ref("mainMenu");
@@ -611,7 +634,17 @@ const submitlogin = () => {
     authed.value = true;
     loginPopup.value = false;
   } else {
-    console.log("test");
+    notify("error", "كلمة المرور او اسم المستحدم غير صحيح", { timeout: 8000 });
   }
 };
+const oldTombs = ref();
+const editAvailableData = () => {
+  updateTombs(tombsDataAvailable.value, oldTombs.value);
+};
+onMounted(() => {
+  getSavedTombs().then((res) => {
+    tombsDataAvailable.value = res;
+    oldTombs.value = JSON.parse(JSON.stringify(res));
+  });
+});
 </script>

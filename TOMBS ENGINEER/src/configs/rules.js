@@ -107,7 +107,6 @@ export default {
     if (optional) {
       return [
         (val) => {
-          console.log(val > 0);
           return (
             val?.length == 0 ||
             Number(val) > 0 ||
